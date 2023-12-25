@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Ali ALhaiky, yousif jabiri, Ali Alhadad , Jassim Alsaffar">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CustomPc BAHRAIN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Images/logo.webp">
+</head>
+<body>
+  <div id="postion">
+  <div id="Header" class="Header"> 
+    <a href="index.html"><img id="logo" src="Images/logo.webp" alt="custome pc logo"></a>
+     <!--inserting a navigation bar-->
+     <ul class="nav_bar">
+      <li id="up" class="masked-text"><a href="index.html">Home</a></li>
+      <li class="masked-text"><a href="Store-PC-Parts.html">Shop</a></li>
+      <li class="masked-text"><a href="Services.html">Services</a></li>
+      <li class="masked-text"><a href="contact.html">Contact</a></li>
+     </ul>
+</div>
+<div id="cart">
+  <img src="Images/cart.png" id="cart-img"><span id="cart-count">0</span>
+</div>
+</div>
+    <div id="banner1">
+      <img src="Images/banner1.png" alt="banner1">
+  </div>
+  <div id="row1">
+   <h2>__________  Best Sellers  __________________________________________________________________</h2>
+</div>
+    <div id="main1">
+        <div class="featured">
+            <img src="Images/i5 13600k.png" alt="Product1"><br>
+              <h3>Intel core i5- 13600k</h3>
+            <p>Price: $299.99</p>
+            <a href="#"><button class="button" data-product-name="Intel Core i5 - 13600k">Add to Cart</button></a>
+          </div>
+          <div class="featured">
+            <img src="Images/4060ti.png" alt="Product2"><br>
+              <h3>GIGABYTE RTX 4060Ti</h3>
+            <p>Price: $344.99</p>
+            <a href="#"><button class="button" data-product-name="GIGABYTE RTX 4060ti">Add to Cart</button></a>
+          </div>
+          <div class="featured">
+            <img src="Images/i7 13700k.png" alt="Product3"><br>
+              <h3>Intel core i7-13700k</h3>
+            <p>Price: $599.99</p>
+            <a href="#"><button class="button" data-product-name="Intel Core i7 - 13700k">Add to Cart</button></a>
+          </div>
+          </div>
+          <div id="footer">
+                <div id="in-icon-d">
+                    <a href="https://www.instagram.com/custom_pc_bh/" id="in-icon"><img src="Images/insta.png" alt="insta icon"></a>
+                </div>
+                <div id="drp-icon-d">
+                  <a href="https://maps.app.goo.gl/zboZCCxfM9G22Y1o8" id="drp-icon"><img src="Images/drop pin.png" alt="drop pen icon"></a>
+                </div>
+                <p>&copy; 2023 CustomPc BH. All rights reserved.</p>
+            </div>
+            <script>
+// Get all the "Add to Cart" buttons
+var addToCartButtons = document.querySelectorAll(".button");
+var cartCount = 0;
+var cartCountElement = document.getElementById("cart-count");
+
+addToCartButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    var productName = this.dataset.productName;
+    var isOutOfStock = this.dataset.outOfStock;
+
+    if (isOutOfStock && isOutOfStock.toLowerCase() === "true") {
+      var userEmail = prompt("Please enter your email to receive updates when the product is back in stock:");
+
+      if (userEmail) {
+        alert("Thank you! We will notify you at " + userEmail + " when the product '" + productName + "' is back in stock.");
+      }
+    } else {
+      cartCount++;
+      cartCountElement.textContent = cartCount;
+      alert("Product '" + productName + "' added to cart!");
+    }
+  });
+});
+
+// Scroll to top
+const toTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+</script>
+</body>
+</html>

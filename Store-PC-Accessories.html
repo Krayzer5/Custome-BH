@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Ali ALhaiky, yousif jabiri, Ali Alhadad , Jassim Alsaffar">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CustomPc BAHRAIN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Images/logo.webp">
+</head>
+<body>
+  <div id="postion">
+  <div id="Header" class="Header"> 
+    <a href="index.html"><img id="logo" src="Images/logo.webp" alt="custome pc logo"></a>
+     <!--inserting a navigation bar-->
+     <ul class="nav_bar">
+      <li  class="masked-text"><a href="index.html">Home</a></li>
+      <li id="up" class="masked-text"><a href="Store-PC-Parts.html">Shop</a></li>
+      <li class="masked-text"><a href="Services.html">Services</a></li>
+      <li class="masked-text"><a href="contact.html">Contact</a></li>
+     </ul>
+</div>
+<div id="cart">
+  <img src="Images/cart.png" id="cart-img"><span id="cart-count">0</span>
+</div>
+</div>
+    <div id="banner1">
+      <img src="Images/banner1.png" alt="banner1">
+  </div>
+  <div id="nav2">
+    <ul>
+      <li  class="masked-text-2"><a href="Store-PC-Parts.html" class="line">PC Parts</a></li>
+      <li id="up-2" class="masked-text-2"><a href="Store-PC-Accessories.html" class="up">PC Accessories</a></li>
+      <li class="masked-text-2"><a href="Store-PC-Builds.html" class="line">PC Builds</a></li>
+     </ul>
+  </div>
+    <div id="main2">
+      <div id="top">
+        <div class="featured">
+            <img src="Images/Glorious GMMK 2 White.png" alt="Product1"class="img-pad"><br>
+              <h3 class="H-pad">GMMK 2 White</h3>
+            <p>Price: BD 45</p>
+            <a href="#"><button class="button" data-product-name="Glorious GMMK 2 White">Add to Cart</button></a>
+          </div>
+          <div class="featured">
+            <img src="Images/Glorious Model O wireless White.png" alt="Product2" class="mouse-img"><br>
+            <h3>Glorious Model O Wireless</h3>
+            <p>Price: BD 28</p>
+            <a href="#"><button class="button" data-product-name="Glorious Model O Wireless White">Add to Cart</button></a>
+          </div>
+          <div class="featured">
+            <img src="Images/Logitech Gpro X gaming headset.png" alt="Product3" class="headset-img"><br>
+            <h3>Logitech Gpro X</h3>
+            <p>Price: BD 60</p>
+            <a href="#"><button class="button" data-product-name="Logitech Gpro X Gaming Headset">Add to Cart</button></a>
+          </div>
+        </div>
+        <div id="bot">
+          <div class="featured">
+            <div id="text-over">
+            <img src="Images/Logitech Gpro X lightspeed mouse.png" alt="Product4" class="mouse-img"><br>
+            <H2 id="out">Out Of Stock</H2>
+            <h3>Logitech Gpro X Lightspeed</h3>
+            <p>Price: BD 46</p>
+            </div>
+            <a href="#"><button class="button" data-product-name="Logitech Gpro X Lighspeed Mouse" data-out-of-stock="true">Add to Cart</button></a>
+          </div>
+          <div class="featured">
+            <div id="text-over">
+            <img src="Images/Razer Blackshark V2 wireless.png" alt="Product5" class="headset-img"><br>
+            <H2 id="out">Out Of Stock</H2>
+            <h3>Razer Blackshark V2 PRO</h3>
+            <p>Price: BD 50</p>
+            </div>
+            <a href="#"><button class="button" data-product-name="Razer Blackshark V2 Wireless" data-out-of-stock="true">Add to Cart</button></a>
+          </div>
+          <div class="featured">
+            <div id="text-over">
+            <img src="Images/Razer huntsman mini.png" alt="Product6"class="img-pad" ><br>
+            <H2 id="out">Out Of Stock</H2>
+            <h3 class="H-pad">Razer Huntsman Mini</h3>
+            <p>Price: BD 110</p>
+          </div>
+            <a href="#"><button class="button" data-product-name="Razer Huntsman Mini" data-out-of-stock="true">Add to Cart</button></a>
+          </div>
+        </div>
+        </div>
+        <button onclick="toTop()" id="back">Back to Top</button>
+        <div id="footer">
+          <div id="in-icon-d">
+              <a href="https://www.instagram.com/custom_pc_bh/" id="in-icon"><img src="Images/insta.png" alt="insta icon"></a>
+          </div>
+          <div id="drp-icon-d">
+            <a href="https://maps.app.goo.gl/zboZCCxfM9G22Y1o8" id="drp-icon"><img src="Images/drop pin.png" alt="drop pen icon"></a>
+          </div>
+          <p>&copy; 2023 CustomPc BH. All rights reserved.</p>
+      </div>
+<script>
+// Get all the "Add to Cart" buttons
+var addToCartButtons = document.querySelectorAll(".button");
+var cartCount = 0;
+var cartCountElement = document.getElementById("cart-count");
+
+addToCartButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    var productName = this.dataset.productName;
+    var isOutOfStock = this.dataset.outOfStock;
+
+    if (isOutOfStock && isOutOfStock.toLowerCase() === "true") {
+      var userEmail = prompt("Please enter your email to receive updates when the product is back in stock:");
+
+      if (userEmail) {
+        alert("Thank you! We will notify you at " + userEmail + " when the product '" + productName + "' is back in stock.");
+      }
+    } else {
+      cartCount++;
+      cartCountElement.textContent = cartCount;
+      alert("Product '" + productName + "' added to cart!");
+    }
+  });
+});
+
+// Scroll to top
+const toTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+</script>
+
+</body>
+</html>
